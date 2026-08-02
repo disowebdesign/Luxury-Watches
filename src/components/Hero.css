@@ -29,10 +29,11 @@
 }
 
 .lw-hero-photo {
-  max-height: 78%;
-  max-width: 60%;
-  object-fit: contain;
-  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.45));
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .lw-hero-placeholder {
