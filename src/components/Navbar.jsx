@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { Menu, X, Search, MapPin, User, ChevronRight } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Menu, X, Search, MapPin, User, ChevronDown } from 'lucide-react';
 import './Navbar.css';
 
 const COLLECTIONS = [
@@ -10,8 +11,16 @@ const COLLECTIONS = [
   { id: 'diver', label: 'Colección Diver' },
 ];
 
+const NAV_ITEMS = [
+  { id: 'top', label: 'Inicio' },
+  { id: 'garantia', label: 'Garantía' },
+  { id: 'historia', label: 'Nosotros' },
+  { id: 'contacto', label: 'Contacto' },
+];
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [collectionsOpen, setCollectionsOpen] = useState(false);
   const panelRef = useRef(null);
 
   useEffect(() => {
@@ -26,6 +35,10 @@ export default function Navbar() {
       document.removeEventListener('mousedown', onClickOutside);
       document.removeEventListener('keydown', onKey);
     };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) setCollectionsOpen(false);
   }, [open]);
 
   const goToSection = (id) => {
@@ -66,37 +79,82 @@ export default function Navbar() {
         <button aria-label="Mi cuenta"><User size={17} strokeWidth={1.5} /></button>
       </div>
 
-      {open && (
-        <div className="lw-navmenu" ref={panelRef}>
-          <button className="lw-navmenu-item" onClick={() => goToSection('top')}>
-            Inicio
-          </button>
+      <AnimatePresence>
+        {open && (
+          <>
+            <motion.div
+              className="lw-navmenu-scrim"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => setOpen(false)}
+            />
 
-          <div className="lw-navmenu-group">
-            <div className="lw-navmenu-heading">Colección</div>
-            {COLLECTIONS.map((c) => (
-              <button
-                key={c.id}
-                className="lw-navmenu-subitem"
-                onClick={() => goToCollection(c.id)}
-              >
-                <ChevronRight size={13} strokeWidth={1.5} />
-                {c.label}
+            <motion.div
+              className="lw-navmenu"
+              ref={panelRef}
+              initial={{ opacity: 0, y: -12, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.98 }}
+              transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <button className="lw-navmenu-item" onClick={() => goToSection('top')}>
+                Inicio
               </button>
-            ))}
-          </div>
 
-          <button className="lw-navmenu-item" onClick={() => goToSection('garantia')}>
-            Garantía
-          </button>
-          <button className="lw-navmenu-item" onClick={() => goToSection('historia')}>
-            Nosotros
-          </button>
-          <button className="lw-navmenu-item" onClick={() => goToSection('contacto')}>
-            Contacto
-          </button>
-        </div>
-      )}
+              <div className="lw-navmenu-collapsible">
+                <button
+                  className="lw-navmenu-item lw-navmenu-toggle"
+                  aria-expanded={collectionsOpen}
+                  onClick={() => setCollectionsOpen((o) => !o)}
+                >
+                  Colección
+                  <motion.span
+                    className="lw-navmenu-chevron"
+                    animate={{ rotate: collectionsOpen ? 180 : 0 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    <ChevronDown size={15} strokeWidth={1.5} />
+                  </motion.span>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {collectionsOpen && (
+                    <motion.div
+                      className="lw-navmenu-group"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                      {COLLECTIONS.map((c) => (
+                        <button
+                          key={c.id}
+                          className="lw-navmenu-subitem"
+                          onClick={() => goToCollection(c.id)}
+                        >
+                          {c.label}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {NAV_ITEMS.slice(1).map((item) => (
+                <button
+                  key={item.id}
+                  className="lw-navmenu-item"
+                  onClick={() => goToSection(item.id)}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
