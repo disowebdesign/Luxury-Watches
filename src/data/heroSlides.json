@@ -2,19 +2,19 @@
   "slides": [
     {
       "eyebrow": "Luxury Watches — Colección Maestro",
-      "title": "Chronograph",
-      "titleEm": "Elite",
-      "image": "",
-      "imageAlt": "Reloj Chronograph Elite",
+      "title": "GIVEAWAY",
+      "titleEm": "CORTIZ WATCHES",
+      "image": "/Luxury-Watches/images/watches/IMG_0766.jpeg",
+      "imageAlt": "Participa",
       "ctaPrimaryLabel": "Ver colección clásica",
       "ctaPrimaryHref": "#coleccion",
       "ctaSecondaryLabel": "Conocer la historia",
       "ctaSecondaryHref": "#historia"
     },
     {
-      "eyebrow": "Luxury Watches — Edición Limitada",
-      "title": "Meridian",
-      "titleEm": "Gold",
+      "eyebrow": "Cortiz Watches",
+      "title": "Giveaway",
+      "titleEm": "Participa",
       "image": "",
       "imageAlt": "Reloj Meridian Gold",
       "ctaPrimaryLabel": "Ver edición limitada",
