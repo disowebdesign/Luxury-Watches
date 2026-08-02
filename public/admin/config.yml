@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: TU-USUARIO/TU-REPO # <-- CAMBIA esto por tu usuario/repo de GitHub, ej. disowebdesign/relojes-catalogo
+  repo: disowebdesign/Luxury-Watches # <-- CAMBIA esto por tu usuario/repo de GitHub, ej. disowebdesign/relojes-catalogo
   branch: main # cambia a "master" si tu rama principal se llama así
   base_url: https://sveltia-cms-auth.disowebdesign.workers.dev # <-- lo obtienes en el paso 2 de la guía
   auth_endpoint: auth
