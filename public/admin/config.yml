@@ -11,7 +11,7 @@ backend:
 publish_mode: simple
 
 media_folder: "public/images/watches"
-public_folder: "/images/watches"
+public_folder: "/Luxury-Watches/images/watches"
 
 locale: "es"
 
