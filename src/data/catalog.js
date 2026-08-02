@@ -17,7 +17,7 @@ const watchesByCollection = {};
 Object.entries(watchModules).forEach(([path, mod]) => {
   const watch = mod.default;
   const id = path.split('/').pop().replace('.json', '');
-  const images = (watch.images || []).map((img) => (img && img.src) || '');
+  const images = (watch.images || []).map((img) => img || '');
   while (images.length < 3) images.push('');
 
   const entry = { id, ...watch, images };
