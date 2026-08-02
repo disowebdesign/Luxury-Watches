@@ -1,11 +1,15 @@
 {
-  "name": "Carrera Day-Date",
+  "name": "Rolex GMT Batman",
   "subtitle": "Automático",
   "price": "$52,000 MXN",
   "collection": "seleccion",
   "tag": "",
   "featured": false,
-  "image": "",
-  "images": [],
+  "image": "/Luxury-Watches/images/watches/IMG_0771.jpeg",
+  "images": [
+    "/Luxury-Watches/images/watches/IMG_0770.jpeg",
+    "/Luxury-Watches/images/watches/IMG_0772.jpeg",
+    "/Luxury-Watches/images/watches/IMG_0773.jpeg"
+  ],
   "description": "Una pieza que combina precisión mecánica suiza con un diseño atemporal. Caja de acero inoxidable cepillado, cristal de zafiro con tratamiento antirreflejante y hermeticidad certificada. Cada detalle está pensado para acompañar tanto un día de trabajo como una noche de gala — personaliza esta descripción en el panel de admin para cada modelo."
 }
