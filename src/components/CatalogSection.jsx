@@ -1,0 +1,31 @@
+import { useState, useMemo } from 'react';
+import CollectionFilters from './CollectionFilters';
+import CatalogCarousel from './CatalogCarousel';
+import CatalogGrid from './CatalogGrid';
+import WatchModal from './WatchModal';
+import collections, { allWatches } from '../data/catalog';
+import './CatalogSection.css';
+
+export default function CatalogSection() {
+  const [active, setActive] = useState(collections[0].id);
+  const [selected, setSelected] = useState(null);
+
+  const activeWatches = useMemo(() => {
+    if (active === 'todo') return allWatches;
+    return collections.find((c) => c.id === active)?.watches ?? [];
+  }, [active]);
+
+  return (
+    <section id="coleccion" className="cat-section">
+      <CollectionFilters collections={collections} active={active} onChange={setActive} />
+
+      {active === 'todo' ? (
+        <CatalogGrid watches={activeWatches} onSelect={setSelected} />
+      ) : (
+        <CatalogCarousel watches={activeWatches} onSelect={setSelected} />
+      )}
+
+      {selected && <WatchModal watch={selected} onClose={() => setSelected(null)} />}
+    </section>
+  );
+}

@@ -1,0 +1,74 @@
+.cc-wrap {
+  width: 100%;
+}
+
+.cc-track {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  max-width: 1440px;
+  margin: 0 auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.cc-track::-webkit-scrollbar { display: none; }
+
+.cc-controls {
+  max-width: 1200px;
+  margin: 28px auto 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 24px;
+}
+
+.cc-play {
+  background: none;
+  border: none;
+  color: var(--paper);
+  cursor: pointer;
+  display: flex;
+}
+
+.cc-dots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.cc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--line-light);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.cc-dot.active {
+  background: var(--gold-light);
+  transform: scale(1.25);
+}
+
+.cc-arrows {
+  margin-left: auto;
+  display: flex;
+  gap: 18px;
+}
+
+.cc-arrows button {
+  background: none;
+  border: none;
+  color: var(--paper);
+  cursor: pointer;
+  display: flex;
+  transition: color 0.25s, transform 0.25s;
+}
+
+.cc-arrows button:hover { color: var(--gold-light); }

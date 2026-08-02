@@ -1,0 +1,226 @@
+.wm-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: var(--ink);
+  overflow-y: auto;
+}
+
+.wm-close {
+  position: fixed;
+  top: 24px;
+  right: 28px;
+  z-index: 10;
+  background: rgba(11,13,16,0.55);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.wm-layout {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: 58% 42%;
+}
+
+/* ── Galería ── */
+.wm-gallery {
+  position: relative;
+  background: linear-gradient(180deg, #e4e6e8 0%, #c7cbce 45%, #9a9fa4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.wm-gallery-stage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wm-photo {
+  width: 68%;
+  height: 68%;
+  object-fit: contain;
+  filter: drop-shadow(0 32px 60px rgba(0,0,0,0.4));
+}
+
+.wm-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: rgba(11,13,16,0.4);
+  font-family: var(--font-body);
+  font-size: 14px;
+  text-align: center;
+}
+
+.wm-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(11,13,16,0.4);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.wm-nav-prev { left: 24px; }
+.wm-nav-next { right: 24px; }
+
+.wm-thumbs {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.wm-thumb {
+  width: 34px;
+  height: 3px;
+  border-radius: 2px;
+  border: none;
+  background: rgba(11,13,16,0.25);
+  cursor: pointer;
+}
+
+.wm-thumb.active { background: var(--ink); }
+
+/* ── Panel de compra ── */
+.wm-panel {
+  display: flex;
+  align-items: center;
+  padding: 64px 56px;
+}
+
+.wm-panel-inner {
+  max-width: 460px;
+}
+
+.wm-tag {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #d0796d;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.wm-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(32px, 3.4vw, 46px);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--paper);
+  line-height: 1.05;
+  transform: scaleY(0.9);
+  transform-origin: left;
+  margin-bottom: 2px;
+}
+
+.wm-subtitle {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--steel);
+  margin-bottom: 22px;
+}
+
+.wm-price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 30px;
+  color: var(--gold-light);
+  margin-bottom: 26px;
+}
+
+.wm-desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--white-70);
+  margin-bottom: 32px;
+}
+
+.wm-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 24px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
+  margin-bottom: 32px;
+}
+
+.wm-spec {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.wm-spec span {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.wm-spec em {
+  font-style: normal;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--paper);
+}
+
+.wm-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #25D366;
+  color: #06110b;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  padding: 17px 24px;
+  border-radius: 4px;
+  transition: filter 0.25s;
+}
+
+.wm-whatsapp:hover { filter: brightness(1.08); }
+
+.wm-note {
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--steel);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .wm-layout { grid-template-columns: 1fr; }
+  .wm-gallery { min-height: 60vh; }
+  .wm-panel { padding: 40px 24px 72px; }
+}

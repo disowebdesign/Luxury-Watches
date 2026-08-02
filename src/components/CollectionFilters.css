@@ -1,0 +1,45 @@
+.cf-wrap {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 24px;
+  margin-bottom: 48px;
+}
+
+.cf-pill {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--line-light);
+  background: transparent;
+  color: var(--white-70);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.cf-pill:hover {
+  border-color: var(--gold-light);
+  color: var(--paper);
+}
+
+.cf-pill.active {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .cf-wrap {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .cf-wrap::-webkit-scrollbar { display: none; }
+}

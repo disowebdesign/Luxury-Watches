@@ -1,0 +1,48 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  /* ── Paleta ─────────────────────────────────────────── */
+  --ink: #0b0d10;           /* negro cálido, base oscura del sitio */
+  --ink-2: #14171c;
+  --paper: #fbfbf9;         /* blanco cálido para la nav del hero, estilo casa relojera */
+  --paper-dim: rgba(251,251,249,0.72);
+  --steel: #8b96a1;         /* gris acero — guiño al material de los relojes */
+  --gold: #b08d57;          /* oro champagne, menos saturado = más caro */
+  --gold-light: #d9bd88;
+  --line: rgba(11,13,16,0.1);
+  --line-light: rgba(251,251,249,0.18);
+  --white-70: rgba(251,251,249,0.7);
+  --white-45: rgba(251,251,249,0.45);
+
+  /* ── Tipografía ─────────────────────────────────────── */
+  /* Oswald: condensada, técnica — el carácter mecánico de un reloj */
+  /* Jost: geométrica y ligera — para nav, cuerpo y datos */
+  --font-display: 'Archivo', 'Arial Black', sans-serif;
+  --font-body: 'Jost', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--ink);
+  color: var(--paper);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; }
+
+button { font-family: inherit; }
+
+::selection { background: var(--gold); color: var(--ink); }
+
+/* Respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "slides": [
+    {
+      "eyebrow": "Luxury Watches — Colección Maestro",
+      "title": "Chronograph",
+      "titleEm": "Elite",
+      "image": "",
+      "imageAlt": "Reloj Chronograph Elite",
+      "ctaPrimaryLabel": "Ver colección clásica",
+      "ctaPrimaryHref": "#coleccion",
+      "ctaSecondaryLabel": "Conocer la historia",
+      "ctaSecondaryHref": "#historia"
+    },
+    {
+      "eyebrow": "Luxury Watches — Edición Limitada",
+      "title": "Meridian",
+      "titleEm": "Gold",
+      "image": "",
+      "imageAlt": "Reloj Meridian Gold",
+      "ctaPrimaryLabel": "Ver edición limitada",
+      "ctaPrimaryHref": "#coleccion",
+      "ctaSecondaryLabel": "Conocer la historia",
+      "ctaSecondaryHref": "#historia"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+backend:
+  name: github
+  repo: TU-USUARIO/TU-REPO # <-- CAMBIA esto por tu usuario/repo de GitHub, ej. disowebdesign/relojes-catalogo
+  branch: main # cambia a "master" si tu rama principal se llama así
+  base_url: https://TU-PROVEEDOR-OAUTH.netlify.app # <-- lo obtienes en el paso 2 de la guía
+  auth_endpoint: auth
+
+# Publicación directa a la rama principal (sin revisión manual).
+# Cambia a "editorial_workflow" más adelante si quieres revisar cambios
+# antes de que se publiquen.
+publish_mode: simple
+
+media_folder: "public/images/watches"
+public_folder: "/images/watches"
+
+locale: "es"
+
+collections:
+  - name: "watches"
+    label: "Relojes"
+    label_singular: "Reloj"
+    folder: "src/data/watches"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: name
+    summary: "{{name}} — {{price}}"
+    fields:
+      - { label: "Nombre", name: "name", widget: "string" }
+      - { label: "Subtítulo", name: "subtitle", widget: "string", required: false }
+      - { label: "Precio", name: "price", widget: "string", hint: "Ej. $45,000 MXN" }
+      - label: "Colección"
+        name: "collection"
+        widget: "select"
+        options:
+          - { label: "Selección del momento", value: "seleccion" }
+          - { label: "Classic", value: "classic" }
+          - { label: "Sport", value: "sport" }
+          - { label: "Diver", value: "diver" }
+      - label: "Etiqueta"
+        name: "tag"
+        widget: "select"
+        required: false
+        options: ["", "NUEVO", "EDICIÓN LIMITADA", "EDICIÓN ESPECIAL"]
+      - label: "Destacado en portada"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Actívalo para que este reloj aparezca en el carrusel principal del inicio (máximo 2 a la vez se ven bien)"
+      - { label: "Foto principal", name: "image", widget: "image", required: false }
+      - label: "Fotos del carrusel (al hacer clic en el reloj)"
+        name: "images"
+        widget: "list"
+        required: false
+        max: 3
+        field: { label: "Foto", name: "src", widget: "image" }
+      - { label: "Descripción", name: "description", widget: "text" }
+
+  - name: "hero"
+    label: "Portada (Hero)"
+    files:
+      - name: "slides"
+        label: "Diapositivas destacadas"
+        file: "src/data/heroSlides.json"
+        fields:
+          - name: "slides"
+            label: "Diapositivas"
+            widget: "list"
+            min: 1
+            max: 3
+            fields:
+              - { label: "Texto pequeño (arriba del título)", name: "eyebrow", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Título (parte en cursiva)", name: "titleEm", widget: "string" }
+              - { label: "Foto", name: "image", widget: "image", required: false }
+              - { label: "Texto alternativo de la foto", name: "imageAlt", widget: "string" }
+              - { label: "Texto botón principal", name: "ctaPrimaryLabel", widget: "string" }
+              - { label: "Link botón principal", name: "ctaPrimaryHref", widget: "string" }
+              - { label: "Texto botón secundario", name: "ctaSecondaryLabel", widget: "string" }
+              - { label: "Link botón secundario", name: "ctaSecondaryHref", widget: "string" }

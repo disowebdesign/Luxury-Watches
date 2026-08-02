@@ -1,0 +1,22 @@
+.cg-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px 24px;
+}
+
+/* Dentro de la cuadrícula, la tarjeta ocupa la celda completa
+   en vez del ancho fijo que usa dentro del carrusel */
+.cg-grid .wc-card {
+  width: 100%;
+}
+
+@media (max-width: 1100px) {
+  .cg-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .cg-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 14px; }
+}

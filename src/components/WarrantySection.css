@@ -1,0 +1,73 @@
+.ws-section {
+  background: var(--ink);
+  padding: 20px 24px 96px;
+}
+
+.ws-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.ws-eyebrow {
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+}
+
+.ws-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(26px, 3vw, 38px);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--paper);
+  transform: scaleY(0.92);
+}
+
+.ws-title em { font-style: normal; color: var(--gold-light); }
+
+.ws-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.ws-card {
+  text-align: center;
+  padding: 8px 12px;
+}
+
+.ws-icon {
+  color: var(--gold-light);
+  margin-bottom: 18px;
+}
+
+.ws-card-title {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--paper);
+  margin-bottom: 10px;
+}
+
+.ws-card-text {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--white-70);
+}
+
+@media (max-width: 900px) {
+  .ws-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; }
+}
+
+@media (max-width: 520px) {
+  .ws-grid { grid-template-columns: 1fr; }
+}
