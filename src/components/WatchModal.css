@@ -48,10 +48,9 @@
 }
 
 .wm-photo {
-  width: 68%;
-  height: 68%;
-  object-fit: contain;
-  filter: drop-shadow(0 32px 60px rgba(0,0,0,0.4));
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .wm-placeholder {
