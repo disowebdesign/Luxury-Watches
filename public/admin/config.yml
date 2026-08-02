@@ -20,6 +20,8 @@ collections:
     label: "Relojes"
     label_singular: "Reloj"
     folder: "src/data/watches"
+    extension: "json"
+    format: "json"
     create: true
     delete: true
     slug: "{{slug}}"
